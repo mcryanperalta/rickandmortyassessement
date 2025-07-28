@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <div data-controller="list">
+        <button data-action="click->list#load">Load Characters</button>
+        <input data-list-target="title" type="text">
+        <ul data-list-target="results"></ul>
+    </div>
+{% endblock %}
