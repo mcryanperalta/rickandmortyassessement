@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-3xl text-center my-4">{{ title }}</h1>
+    <div data-controller="misc--loader locations--list" data-action="pageChange->locations--list#pageUpdated">
+        <div 
+            data-locations--list-target="loader"
+            data-misc--loader-target="indicator" 
+            class="text-center py-8 text-gray-600">
+            Loading Episodes...
+        </div>
+
+        <div 
+            data-misc--loader-target="content"
+            data-locations--list-target="list"
+            class="grid grid-cols-1 sm:grid-cols-3 gap-4 px-4 hidden">
+        </div>
+
+        <div data-locations--list-target="pagination" class="mt-4 text-center"></div>   
+ </div>
+{% endblock %}

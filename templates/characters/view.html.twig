@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+ <div 
+    data-controller="misc--loader characters--view" 
+    data-action="pageChange->characters--list#pageUpdated"
+    data-characters--view-character-value="{{ characterId }}"
+    >
+        <div 
+            data-characters--view-target="loader"
+            data-misc--loader-target="indicator" 
+            class="text-center py-8 text-gray-600">
+            Loading details...
+        </div>
+
+        <div 
+            data-misc--loader-target="content"
+            data-characters--view-target="details"
+            class="max-w-5xl mx-auto p-6 space-y-8 hidden">
+        </div>
+        
+        <div 
+            data-misc--loader-target="content"
+            data-characters--view-target="episodes"
+            class="max-w-5xl mx-auto p-6 space-y-8 hidden">
+        </div>
+
+    </div>
+ </div>
+{% endblock %}

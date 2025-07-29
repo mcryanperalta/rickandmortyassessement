@@ -9,6 +9,42 @@
                 "enabled": false,
                 "fetch": "eager"
             }
+        },
+        "misc--loader": {
+            "enabled": true,
+            "fetch": "eager"
+        },
+        "misc--pagination": {
+            "enabled": true,
+            "webpackMode": "lazy"
+        },
+        "characters--list": {
+            "enabled": true,
+            "fetch": "eager"
+        },
+        "characters--view": {
+            "enabled": true,
+            "fetch": "eager"
+        },
+        "episodes--list": {
+            "enabled": true,
+            "fetch": "eager"
+        },
+        "episodes--view": {
+            "enabled": true,
+            "fetch": "eager"
+        },
+        "locations--list": {
+            "enabled": true,
+            "fetch": "eager"
+        },
+        "locations--view": {
+            "enabled": true,
+            "fetch": "eager"
+        },
+        "dimensions--list": {
+            "enabled": true,
+            "fetch": "eager"
         }
     },
     "entrypoints": []

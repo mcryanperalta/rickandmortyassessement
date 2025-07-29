@@ -1,18 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                {% set currentRoute = app.request.attributes.get('_route') %}
+
+                <div class="flex space-x-4">
+                    <a href="{{ path('rick_and_morty_all') }}"
+                    class="{{ currentRoute == 'rick_and_morty_all' ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-blue-600' }}">
+                        Characters
+                    </a>
+
+                    <a href="{{ path('rick_and_morty_episode_all') }}"
+                    class="{{ currentRoute == 'rick_and_morty_episode_all' ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-blue-600' }}">
+                        Episodes
+                    </a>
+
+                    <a href="{{ path('rick_and_morty_location_all') }}"
+                    class="{{ currentRoute == 'rick_and_morty_location_all' ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-blue-600' }}">
+                        Location
+                    </a>
+                    <a href="{{ path('rick_and_morty_dimension_search') }}"
+                    class="{{ currentRoute == 'rick_and_morty_dimension_search' ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-blue-600' }}">
+                        Search By Dimension
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="flex-grow px-4 py-6">
         {% block body %}{% endblock %}
-    </body>
+    </main>
+
+    <!-- Optional Footer -->
+    <footer class="bg-white border-t text-sm text-center py-4 text-gray-500">
+        &copy; {{ "now"|date("Y") }} MyApp. All rights reserved.
+    </footer>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</body>
 </html>

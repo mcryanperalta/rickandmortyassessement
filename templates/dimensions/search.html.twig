@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-3xl text-center my-4">{{ title }}</h1>
+    <div data-controller="misc--loader dimensions--list" data-action="pageChange->dimensions--list#pageUpdated">
+    
+        <div class="text-center mb-4">
+            <input data-dimensions--list-target="input" value="{{ search|e }}" type="text" placeholder="Search..." class="border rounded px-2 py-1" />
+            <button data-action="click->dimensions--list#submit" class="bg-blue-500 text-white px-3 py-1 rounded ml-2">Search</button>
+        </div>
+
+        <div 
+            data-dimensions--list-target="loader"
+            data-misc--loader-target="indicator" 
+            class="text-center py-8 text-gray-600">
+            Loading details...
+        </div>
+
+        <div 
+            data-misc--loader-target="content"
+            data-dimensions--list-target="list"
+            class="grid grid-cols-1 sm:grid-cols-3 gap-4 px-4 hidden">
+        </div>
+        <div 
+            data-misc--loader-target="content"
+            data-dimensions--list-target="characters"
+            class="mx-auto p-6 space-y-8 hidden">
+        </div>
+    </div>  
+{% endblock %}

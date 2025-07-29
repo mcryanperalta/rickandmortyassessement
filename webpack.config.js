@@ -62,9 +62,14 @@ Encore
         '@symfony/stimulus-bridge/controllers.json': path.resolve(__dirname, 'assets/controllers.json'),
     })
 
-
-    // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enablePostCssLoader((options) => {
+        options.postcssOptions = {
+            plugins: [
+                require('tailwindcss'),
+                require('autoprefixer'),
+            ],
+        };
+    })
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
